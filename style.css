@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+* {
+  font-family: "Press Start 2P", system-ui;
+}
+body {
+  background-color: rgb(28, 122, 41);
+}
+h1 {
+  color: white;
+  text-align: center;
+  margin-bottom: 50px;
+}
+.fetch-area {
+  background-color: rgb(42, 175, 60);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  gap: 10px;
+  width: 25vw;
+  min-width: 200px;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px black;
+}
+#digite {
+  width: 15vw;
+  min-width: 100px;
+  border-radius: 5px;
+  border: none;
+  padding: 5px;
+}
+#digite::placeholder {
+  font-size: smaller;
+}
+.ir {
+  width: fit-content;
+  margin-bottom: 20px;
+  border: 0;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: rgb(8, 150, 8);
+  color: white;
+  transition: all 500ms ease;
+}
+.ir:hover {
+  padding: 13px;
+  cursor: pointer;
+  background-color: rgb(7, 131, 7);
+}
+.skin2 {
+  width: 100px;
+}
+.skin3 {
+  color: white;
+  font-family: "Press Start 2P", system-ui;
+  font-size: smaller;
+  font-weight: 100;
+}
