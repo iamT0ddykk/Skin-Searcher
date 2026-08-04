@@ -1,14 +1,19 @@
-@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
-* {
-  font-family: "Press Start 2P", system-ui;
-}
 body {
   background-color: rgb(28, 122, 41);
 }
-h1 {
+nav {
+  background-color: red;
+  display: flex;
+  gap: 20px;
+}
+.texts-area {
   color: white;
   text-align: center;
   margin-bottom: 50px;
+}
+.texts-area a {
+  color: white;
+  text-decoration: none;
 }
 .fetch-area {
   background-color: rgb(42, 175, 60);
@@ -56,4 +61,15 @@ h1 {
   font-family: "Press Start 2P", system-ui;
   font-size: smaller;
   font-weight: 100;
+}
+.dataArea {
+  display: flex;
+  flex-direction: column;
+  width: 110px;
+  text-align: center;
+  row-gap: 20px;
+}
+.dataArea a {
+  color: white;
+  text-align: center;
 }
