@@ -8,7 +8,12 @@ O **Skin Searcher** foi criado para praticar o desenvolvimento de aplicações c
 
 ## 📸 Preview
 
-*(Adicione aqui um print do projeto.)*
+<p align="center">
+  <img src="./public/print1.png" alt="Preview do Skin Searcher" width="800">
+</p>
+<p align="center">
+  <img src="./public/print2.png" alt="Preview do Skin Searcher" width="800">
+</p>
 
 ---
 
@@ -20,22 +25,22 @@ Este projeto foi desenvolvido para aprofundar conhecimentos em **React**, explor
 
 ## ✨ Funcionalidades
 
-* 🔍 Pesquisa de skins pelo nome do jogador
-* 🎮 Visualização da skin do Minecraft
-* ⭐ Sistema de favoritos
-* 🕒 Histórico de pesquisas
-* 🌐 Consumo de API para obtenção das skins
-* ⚡ Interface rápida e responsiva
+- 🔍 Pesquisa de skins pelo nome do jogador
+- 🎮 Visualização da skin do Minecraft
+- ⭐ Sistema de favoritos
+- 🕒 Histórico de pesquisas
+- 🌐 Consumo de API para obtenção das skins
+- ⚡ Interface rápida e responsiva
 
 ---
 
 ## 🛠️ Tecnologias utilizadas
 
-* React
-* JavaScript
-* HTML5
-* CSS3
-* Fetch API
+- React
+- JavaScript
+- HTML5
+- CSS3
+- Fetch API
 
 ---
 
@@ -90,13 +95,13 @@ npm run dev
 
 ## 📚 O que foi praticado
 
-* Desenvolvimento de aplicações com React
-* Componentização
-* Gerenciamento de estado
-* Consumo de APIs
-* Manipulação do DOM
-* Persistência de dados utilizando armazenamento local (Local Storage)
-* Organização de projetos React
+- Desenvolvimento de aplicações com React
+- Componentização
+- Gerenciamento de estado
+- Consumo de APIs
+- Manipulação do DOM
+- Persistência de dados utilizando armazenamento local (Local Storage)
+- Organização de projetos React
 
 ---
 

@@ -2,7 +2,6 @@ body {
   background-color: rgb(28, 122, 41);
 }
 nav {
-  background-color: red;
   display: flex;
   gap: 20px;
 }
