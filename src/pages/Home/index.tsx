@@ -12,7 +12,7 @@ export function Home() {
   const [username, setUsername] = useState<string>("");
   const [skinData, setSkinData] = useState<SkinData | null>(null);
 
-  const { listasave, setListasave } = useContext(SavedContext);
+  const { setListasave } = useContext(SavedContext);
 
   const { setListaskin } = useContext(SkinContext);
 
@@ -65,7 +65,14 @@ export function Home() {
       user: username,
       id: aid,
     };
-    setListaskin((prev) => [...prev, newSkin]);
+
+    setListaskin((prev) => {
+      const newList = [...prev, newSkin];
+
+      localStorage.setItem("historico", JSON.stringify(newList));
+
+      return newList;
+    });
   };
 
   function handleSave() {
@@ -79,8 +86,12 @@ export function Home() {
     };
 
     setListasave((prev) => [...prev, newSkin]);
-    alert("a");
-    console.log(listasave);
+    toast.success("Skin Salva...", {
+      position: "top-right", // Posição: 'top-left', 'top-center', 'bottom-right', etc.
+      autoClose: 2000, // Tempo em milissegundos para fechar (3s)
+      hideProgressBar: false, // Ocultar a barra de progresso
+      theme: "dark", // Tema: 'light', 'dark', 'colored'
+    });
   }
 
   return (
@@ -121,12 +132,14 @@ export function Home() {
             <>
               <img src={skinData.bodyUrl} alt="" />
               <img src={skinData.headUrl} alt="" />
-              <a href={skinData.downloadUrl}>
-                Baixar <BiDownload></BiDownload>
-              </a>
-              <a onClick={handleSave}>
-                Salvar <BiSave></BiSave>
-              </a>
+              <div className="opt-area">
+                <a href={skinData.downloadUrl} title="Baixar Skin">
+                  <BiDownload size={40}></BiDownload>
+                </a>
+                <a className="saveBtn" onClick={handleSave} title="Salvar Skin">
+                  <BiSave size={40}></BiSave>
+                </a>
+              </div>
             </>
           )}
         </div>

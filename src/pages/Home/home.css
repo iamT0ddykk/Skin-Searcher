@@ -71,4 +71,17 @@ nav {
 .dataArea a {
   color: white;
   text-align: center;
+  transition: all ease 300ms;
+}
+.dataArea a:hover {
+  transform: translateY(-3px);
+}
+.saveBtn:hover {
+  cursor: pointer;
+  transition: all ease 500ms;
+}
+.opt-area {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
 }

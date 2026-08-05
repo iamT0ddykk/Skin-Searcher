@@ -5,6 +5,7 @@ import { Link } from "react-router";
 import { BiDownload, BiSave, BiTrash } from "react-icons/bi";
 import { toast } from "react-toastify";
 import { Preset } from "../../components/Preset";
+import { format } from "date-fns";
 
 export function History() {
   const { listaskin, setListaskin } = useContext(SkinContext);
@@ -58,7 +59,7 @@ export function History() {
           {listaskin.map((skin) => {
             return (
               <>
-                <div className="history-content" key={skin.id}>
+                <div className="history-content" key={format(Number(skin.id), "dd/MM/yyyy")}>
                   <p className="nickname">{skin.user}</p>
                   <img src={skin.bodyUrl} alt="" />
                   <img src={skin.headUrl} alt="" />
@@ -74,6 +75,9 @@ export function History() {
                       <BiTrash size={35}></BiTrash>
                     </a>
                   </div>
+                  <p className="timeStamp">
+                    {format(Number(skin.id), "dd/MM/yyyy HH:mm:ss")}
+                  </p>
                 </div>
               </>
             );
