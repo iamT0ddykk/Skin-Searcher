@@ -1,120 +1,77 @@
-# 🎨 Skin Searcher
+# React + TypeScript + Vite
 
-> Um buscador de skins do Minecraft desenvolvido com **React**, que permite pesquisar jogadores, visualizar suas skins e salvar seus favoritos.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-O **Skin Searcher** foi criado para praticar o desenvolvimento de aplicações com React, consumindo APIs e implementando funcionalidades como histórico de pesquisas e gerenciamento de favoritos.
+Currently, two official plugins are available:
 
----
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-## 📸 Preview
+## React Compiler
 
-<p align="center">
-  <img src="./public/print1.png" alt="Preview do Skin Searcher" width="800">
-</p>
-<p align="center">
-  <img src="./public/print2.png" alt="Preview do Skin Searcher" width="800">
-</p>
+The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
 
----
+Note: This will impact Vite dev & build performances.
 
-## 🎯 Objetivo do projeto
+## Expanding the ESLint configuration
 
-Este projeto foi desenvolvido para aprofundar conhecimentos em **React**, explorando conceitos como componentização, gerenciamento de estado, consumo de APIs e armazenamento de dados no navegador.
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
----
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
 
-## ✨ Funcionalidades
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
 
-- 🔍 Pesquisa de skins pelo nome do jogador
-- 🎮 Visualização da skin do Minecraft
-- ⭐ Sistema de favoritos
-- 🕒 Histórico de pesquisas
-- 🌐 Consumo de API para obtenção das skins
-- ⚡ Interface rápida e responsiva
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
 
----
-
-## 🛠️ Tecnologias utilizadas
-
-- React
-- JavaScript
-- HTML5
-- CSS3
-- Fetch API
-
----
-
-## 📂 Estrutura do projeto
-
-```text
-skin-searcher/
-│
-├── public/
-├── src/
-│   ├── assets/
-│   ├── components/
-│   ├── pages/
-│   ├── services/
-│   └── App.jsx
-├── package.json
-├── vite.config.js
-└── README.md
 ```
 
----
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-## 🚀 Como executar
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
-1. Clone o repositório:
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
 
-```bash
-git clone https://github.com/iamT0ddykk/skin-searcher.git
 ```
-
-2. Entre na pasta do projeto:
-
-```bash
-cd skin-searcher
-```
-
-3. Instale as dependências:
-
-```bash
-npm install
-```
-
-4. Inicie o servidor de desenvolvimento:
-
-```bash
-npm run dev
-```
-
-5. Abra o navegador no endereço informado pelo Vite (geralmente `http://localhost:5173`).
-
----
-
-## 📚 O que foi praticado
-
-- Desenvolvimento de aplicações com React
-- Componentização
-- Gerenciamento de estado
-- Consumo de APIs
-- Manipulação do DOM
-- Persistência de dados utilizando armazenamento local (Local Storage)
-- Organização de projetos React
-
----
-
-## 👨‍💻 Autor
-
-Desenvolvido por **iamT0ddykk**
-
-🔗 GitHub: https://github.com/iamT0ddykk
-
-Se este projeto foi útil ou interessante, considere deixar uma ⭐ no repositório.
-
----
-
-## 📄 Licença
-
-Este projeto está licenciado sob a licença MIT.

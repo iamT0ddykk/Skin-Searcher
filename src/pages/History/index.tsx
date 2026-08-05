@@ -4,6 +4,7 @@ import { SkinContext } from "../../context/SkinContext";
 import { Link } from "react-router";
 import { BiDownload, BiSave, BiTrash } from "react-icons/bi";
 import { toast } from "react-toastify";
+import { Preset } from "../../components/Preset";
 
 export function History() {
   const { listaskin, setListaskin } = useContext(SkinContext);
@@ -42,10 +43,7 @@ export function History() {
   }
   return (
     <>
-      <div className="texts-area">
-        <h1>
-          <Link to={"/"}>Skin Searcher</Link>
-        </h1>
+      <Preset>
         <button
           className="delete-button"
           onClick={zeraLista}
@@ -53,7 +51,7 @@ export function History() {
         >
           <BiTrash size={30}></BiTrash>
         </button>
-      </div>
+      </Preset>
 
       <div className="history-area">
         <div className="history-alig">

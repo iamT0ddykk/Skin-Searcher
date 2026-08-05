@@ -1,0 +1,97 @@
+body {
+  background-color: rgb(28, 122, 41);
+}
+.texts-area {
+  color: white;
+  text-align: center;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.delete-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #fee2e2;
+  color: #dc2626;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.delete-button:hover {
+  background-color: #dc2626;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.35);
+  transform: translateY(-2px);
+}
+.dataArea {
+  display: flex;
+  flex-direction: column;
+  width: 110px;
+  text-align: center;
+  row-gap: 20px;
+}
+.dataArea a {
+  color: white;
+  text-align: center;
+}
+.saved-area {
+  display: flex;
+  justify-content: center;
+}
+.saved-alig {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 100px;
+  background-color: rgb(42, 175, 60);
+  padding: 30px;
+  min-width: 200px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px black;
+}
+.saved-content {
+  background-color: rgb(31, 133, 44);
+  padding: 25px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  max-width: 100px;
+  text-align: center;
+  gap: 10px;
+  transition: all ease 200ms;
+}
+.saved-content:hover {
+  transform: translateY(-10px);
+  cursor: pointer;
+}
+.nickname {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.192);
+  overflow: auto;
+  overflow-y: hidden;
+}
+.saved-opt {
+  display: flex;
+  justify-content: center;
+}
+.saved-opt a {
+  color: white;
+}
+/* --- MEDIA QUERY PARA CELULARES (Telas até 640px) --- */
+@media screen and (max-width: 710px) {
+  .saved-alig {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .saved-content {
+    align-self: center;
+    justify-self: center;
+  }
+}

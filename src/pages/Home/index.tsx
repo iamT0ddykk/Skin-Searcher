@@ -7,11 +7,14 @@ import { Link } from "react-router";
 import { toast } from "react-toastify";
 import { MdSearchOff } from "react-icons/md";
 import { FaHistory } from "react-icons/fa";
+import { SavedContext } from "../../context/SaveContext";
 export function Home() {
   const [username, setUsername] = useState<string>("");
   const [skinData, setSkinData] = useState<SkinData | null>(null);
 
-  const { listaskin, setListaskin } = useContext(SkinContext);
+  const { listasave, setListasave } = useContext(SavedContext);
+
+  const { setListaskin } = useContext(SkinContext);
 
   const handleSearch = async () => {
     if (!username.trim()) {
@@ -62,9 +65,23 @@ export function Home() {
       user: username,
       id: aid,
     };
-    console.log(listaskin);
     setListaskin((prev) => [...prev, newSkin]);
   };
+
+  function handleSave() {
+    const aid = Date.now().toString();
+    const newSkin: SkinData = {
+      bodyUrl: `https://mineskin.eu/armor/body/${username}/100.png`,
+      headUrl: `https://mineskin.eu/helm/${username}`,
+      downloadUrl: `https://mineskin.eu/download/${username}`,
+      user: username,
+      id: aid,
+    };
+
+    setListasave((prev) => [...prev, newSkin]);
+    alert("a");
+    console.log(listasave);
+  }
 
   return (
     <>
@@ -80,8 +97,8 @@ export function Home() {
           >
             <FaHistory size={30} />
           </Link>
-          <Link className="gotohistory" to={"/saved"} title="Ir para os Salvos">
-            <BiHeart size={32} />
+          <Link className="gotosaved" to={"/saved"} title="Ir para os Salvos">
+            <BiHeart size={30} />
           </Link>
         </nav>
       </div>
@@ -107,7 +124,7 @@ export function Home() {
               <a href={skinData.downloadUrl}>
                 Baixar <BiDownload></BiDownload>
               </a>
-              <a>
+              <a onClick={handleSave}>
                 Salvar <BiSave></BiSave>
               </a>
             </>

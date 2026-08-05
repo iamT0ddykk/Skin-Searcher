@@ -10,8 +10,10 @@ export interface SkinContextType {
 export interface SkinProviderChildren {
   children: React.ReactNode;
 }
-
 // 2. Inicialize o contexto com o tipo correto
 export const SkinContext = createContext<SkinContextType>(
   {} as SkinContextType,
 );
+
+
+
