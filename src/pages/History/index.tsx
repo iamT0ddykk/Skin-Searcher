@@ -37,7 +37,7 @@ export function History() {
           <h1>
             <Link to={"/"}>Skin Searcher</Link>
           </h1>
-          <p>Voce nao pesquisou por nenhuma Skin...</p>
+          <p>Você não pesquisou por nenhuma Skin...</p>
         </div>
       </>
     );
@@ -59,7 +59,10 @@ export function History() {
           {listaskin.map((skin) => {
             return (
               <>
-                <div className="history-content" key={format(Number(skin.id), "dd/MM/yyyy")}>
+                <div
+                  className="history-content"
+                  key={format(Number(skin.id), "dd/MM/yyyy")}
+                >
                   <p className="nickname">{skin.user}</p>
                   <img src={skin.bodyUrl} alt="" />
                   <img src={skin.headUrl} alt="" />

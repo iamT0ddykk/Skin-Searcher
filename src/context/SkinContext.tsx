@@ -14,6 +14,3 @@ export interface SkinProviderChildren {
 export const SkinContext = createContext<SkinContextType>(
   {} as SkinContextType,
 );
-
-
-

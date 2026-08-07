@@ -1,50 +1,49 @@
 import { useContext } from "react";
-import { Preset } from "../../components/Preset";
 import { SavedContext } from "../../context/SaveContext";
 import { BiDownload, BiTrash } from "react-icons/bi";
 import "./saved.css";
-import { format } from "date-fns";
+import { Preset } from "../../components/Preset";
+
 export function Saved() {
   const { listasave, setListasave } = useContext(SavedContext);
+
   function apagaUm(id: string) {
-    setListasave(listasave.filter((item) => item.id !== id));
+    setListasave((prev) => prev.filter((item) => item.id !== id));
   }
 
-  if (listasave.length == 0) {
-    return <Preset>Voce nao salvou nenhuma skin...</Preset>;
-  } else {
-    return (
-      <>
-        <Preset>Salvos</Preset>
+  if (listasave.length === 0) {
+    return <Preset> Você não salvou nenhuma skin... </Preset>;
+  }
+
+  return (
+    <>
+      <Preset>
+        <h1>Salvos</h1>
 
         <div className="saved-area">
           <div className="saved-alig">
-            {listasave.map((saved) => {
-              return (
-                <>
-                  <div
-                    className="saved-content"
-                    key={format(Number(saved.id), "dd/MM/yyyy HH:mm:ss")}
-                  >
-                    <p className="nickname">{saved.user}</p>
-                    <img src={saved.bodyUrl} alt="" />
-                    <img src={saved.headUrl} alt="" />
-                    <div className="saved-opt">
-                      <a href={saved.downloadUrl} title="Baixar saved">
-                        <BiDownload size={35}></BiDownload>
-                      </a>
-                      <a onClick={() => apagaUm(saved.id)} title="Apagar saved">
-                        {" "}
-                        <BiTrash size={35}></BiTrash>
-                      </a>
-                    </div>
-                  </div>
-                </>
-              );
-            })}
+            {listasave.map((saved) => (
+              <div className="saved-content" key={saved.id}>
+                <p className="nickname">{saved.user}</p>
+
+                <img src={saved.bodyUrl} alt={`Skin de ${saved.user}`} />
+
+                <img src={saved.headUrl} alt={`Cabeça de ${saved.user}`} />
+
+                <div className="saved-opt">
+                  <a href={saved.downloadUrl} title="Baixar skin" download>
+                    <BiDownload size={35} />
+                  </a>
+
+                  <a onClick={() => apagaUm(saved.id)} title="Apagar skin">
+                    <BiTrash size={35} />
+                  </a>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
-      </>
-    );
-  }
+      </Preset>
+    </>
+  );
 }

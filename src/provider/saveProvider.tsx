@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { SkinData } from "../models/skinDataModel";
 import {
   SavedContext,
@@ -6,11 +6,29 @@ import {
 } from "../context/SaveContext";
 
 export function SaveProvider({ children }: SaveProviderChildren) {
-  // 3. O estado guarda um array de SkinData
-  const [listasave, setListasave] = useState<SkinData[]>([]);
+  const [listasave, setListasave] = useState<SkinData[]>(() => {
+    const salvos = localStorage.getItem("salvos");
+
+    if (!salvos) {
+      return [];
+    }
+
+    try {
+      const dados = JSON.parse(salvos);
+
+      return Array.isArray(dados) ? dados : [];
+    } catch (error) {
+      console.error("Erro ao carregar skins salvas:", error);
+
+      return [];
+    }
+  });
+
+  useEffect(() => {
+    localStorage.setItem("salvos", JSON.stringify(listasave));
+  }, [listasave]);
 
   return (
-    // 4. Passe um OBJETO contendo a lista E a função de atualização no value
     <SavedContext.Provider value={{ listasave, setListasave }}>
       {children}
     </SavedContext.Provider>
