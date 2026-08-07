@@ -9,8 +9,6 @@ import { format } from "date-fns";
 
 export function History() {
   const { listaskin, setListaskin } = useContext(SkinContext);
-  console.log(listaskin);
-
   function zeraLista() {
     const cof = confirm("Deseja deletar TODO historico?");
     if (cof) {

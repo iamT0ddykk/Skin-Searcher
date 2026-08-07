@@ -47,6 +47,16 @@ export function Home() {
       });
       return;
     }
+    if (username === "!/ecila/") {
+      toast.error("", {
+        position: "top-right", // Posição: 'top-left', 'top-center', 'bottom-right', etc.
+        autoClose: 2000, // Tempo em milissegundos para fechar (3s)
+        hideProgressBar: false, // Ocultar a barra de progresso
+        theme: "dark", // Tema: 'light', 'dark', 'colored'
+        icon: <BiHeart size={20} color="red" />,
+      });
+      return;
+    }
 
     const aid = Date.now().toString();
 
